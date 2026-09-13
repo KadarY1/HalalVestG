@@ -28,7 +28,7 @@ function Logo() {
         <MoonStar className="h-5 w-5" aria-hidden />
       </span>
       <span className="text-xl font-extrabold tracking-tight text-slate-900">
-        Halal<span className="text-brand-700">Vest</span>
+        Halal<span className="text-brand-700">Vests</span>
       </span>
     </Link>
   )

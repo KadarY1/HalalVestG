@@ -6,7 +6,7 @@ export function Learn() {
   return (
     <div className="space-y-4">
       <h1 className="text-2xl font-extrabold text-slate-900">Learn</h1>
-      <p className="text-sm text-slate-500">Islamic investing fundamentals — educational content, not religious rulings.</p>
+      <p className="text-sm text-slate-500">Islamic inVestsing fundamentals — educational content, not religious rulings.</p>
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {LEARN_TOPICS.map(t => (
           <Link key={t.slug} to={`/learn/${t.slug}`}>

@@ -4366,7 +4366,7 @@ export const COMPANIES = [
   },
   "businessFlags": [
    "conventional banking",
-   "conventional investment banking"
+   "conventional inVestsment banking"
   ],
   "description": "Goldman Sachs operates in the financials sector. Prototype profile.",
   "history": [
