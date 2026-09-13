@@ -1,4 +1,5 @@
 import { StoreProvider } from './context/store.jsx'
+import { Analytics } from '@vercel/analytics/react'
 import Layout from './components/Layout.jsx'
 import { useRoute, matchPath, useScrollTopOnRoute } from './lib/router.jsx'
 import Landing from './pages/Landing.jsx'
@@ -56,6 +57,16 @@ export default function App() {
       <Layout>
         <Router />
       </Layout>
+            export default function App() {
+          return (
+          <StoreProvider>
+            <Layout>
+              <Router />
+            </Layout>
+            <Analytics />
+    </StoreProvider>
+  )
+}
     </StoreProvider>
   )
 }
