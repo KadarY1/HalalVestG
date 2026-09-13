@@ -57,16 +57,7 @@ export default function App() {
       <Layout>
         <Router />
       </Layout>
-            export default function App() {
-          return (
-          <StoreProvider>
-            <Layout>
-              <Router />
-            </Layout>
-            <Analytics />
-    </StoreProvider>
-  )
-}
+      <Analytics />
     </StoreProvider>
   )
 }
