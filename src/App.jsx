@@ -54,12 +54,12 @@ function Router() {
 
 export default function App() {
   return (
-    <AppProvider>
+    <StoreProvider>
       <Layout>
-        {/* your route rendering / RouterOutlet here */}
+        <Router />
         <Analytics />
         <SpeedInsights />
       </Layout>
-    </AppProvider>
+    </StoreProvider>
   );
 }
