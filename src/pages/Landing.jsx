@@ -55,7 +55,7 @@ export default function Landing() {
 
       <footer className="mx-auto max-w-4xl px-6 py-12">
         <Disclaimer />
-        <p className="mt-4 text-center text-xs text-slate-400">HalalVests prototype · mock data · not a brokerage, adviser, or religious authority</p>
+        <p className="mt-4 text-center text-xs text-slate-400">HalalVestss prototype · mock data · not a brokerage, adviser, or religious authority</p>
       </footer>
     </div>
   )

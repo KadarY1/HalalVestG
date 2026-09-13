@@ -3,7 +3,7 @@ import { getCompany } from '../data/companies.js'
 import { METHODOLOGIES, DEFAULT_METHODOLOGY } from '../data/methodologies.js'
 
 const StoreContext = createContext(null)
-const LS_KEY = 'HalalVests-state-v1'
+const LS_KEY = 'HalalVestss-state-v1'
 
 const load = () => {
   try { return JSON.parse(localStorage.getItem(LS_KEY)) || {} } catch { return {} }
