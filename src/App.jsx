@@ -1,5 +1,6 @@
 import { StoreProvider } from './context/store.jsx'
 import { Analytics } from '@vercel/analytics/react'
+import { SpeedInsights } from "@vercel/speed-insights/react";
 import Layout from './components/Layout.jsx'
 import { useRoute, matchPath, useScrollTopOnRoute } from './lib/router.jsx'
 import Landing from './pages/Landing.jsx'
@@ -53,11 +54,12 @@ function Router() {
 
 export default function App() {
   return (
-    <StoreProvider>
+    <AppProvider>
       <Layout>
-        <Router />
+        {/* your route rendering / RouterOutlet here */}
+        <Analytics />
+        <SpeedInsights />
       </Layout>
-      <Analytics />
-    </StoreProvider>
-  )
+    </AppProvider>
+  );
 }
