@@ -1,4 +1,4 @@
-# HalalVestss — Shariah InVestsment Research & Zakat Platform (Prototype)
+# HalalVests — Shariah InVestsment Research & Zakat Platform (Prototype)
 
 Vite + React + Tailwind CSS v4 + Recharts. Mock data only — not a brokerage,
 adviser, or religious authority. Not financial or religious advice.
