@@ -20,7 +20,7 @@ const PROHIBITED_ACTIVITY_LABELS = {
   'conventional banking': 'Conventional interest-based banking',
   'conventional lending': 'Conventional interest-based lending',
   'conventional insurance': 'Conventional insurance',
-  'conventional inVestsment banking': 'Conventional inVestsment banking',
+  'conventional investment banking': 'Conventional investment banking',
   'alcohol': 'Alcohol production or distribution',
   'pork': 'Pork-related products',
   'gambling': 'Gambling operations',
@@ -134,7 +134,7 @@ export function calculateNisab(metal, methodology) {
 /**
  * Zakat input model (all USD):
  *  cash: { checking, savings, physical }
- *  inVestsments: { stocks, etfs, mutualFunds, other }
+ *  investments: { stocks, etfs, mutualFunds, other }
  *  retirement: { k401, ira, other, accessibility: 'full'|'partial'|'none' }
  *  metals: { goldGrams, silverGrams }
  *  business: { inventory, receivables, cash }
@@ -142,7 +142,7 @@ export function calculateNisab(metal, methodology) {
  */
 export function calculateZakatableWealth(inputs, methodology) {
   const m = methodology
-  const c = inputs.cash, inv = inputs.inVestsments, ret = inputs.retirement,
+  const c = inputs.cash, inv = inputs.investments, ret = inputs.retirement,
         met = inputs.metals, biz = inputs.business
   const num = (v) => Math.max(0, Number(v) || 0)
 
@@ -168,7 +168,7 @@ export function calculateZakatableWealth(inputs, methodology) {
   return {
     lines: [
       { label: 'Cash & Equivalents', amount: cashTotal },
-      { label: 'InVestsments', amount: invTotal },
+      { label: 'Investments', amount: invTotal },
       { label: `Retirement (${ret.accessibility === 'full' ? 'fully accessible' : ret.accessibility === 'partial' ? 'partially accessible' : 'not currently accessible'})`, amount: retTotal, note: retRaw !== retTotal ? `Raw total $${retRaw.toLocaleString()} × ${retFactor}` : undefined },
       { label: 'Precious Metals', amount: metalValue },
       { label: 'Business Assets', amount: bizTotal },
@@ -200,16 +200,16 @@ export function summarizePortfolio(holdings, cash, getCompany, methodology) {
     const screening = screenStock(c, methodology)
     return { ...h, company: c, value, dayChange, cost: h.costBasis != null ? h.costBasis * h.shares : value, screening }
   }).filter(Boolean)
-  const inVestsed = rows.reduce((s, r) => s + r.value, 0)
-  const total = inVestsed + Math.max(0, cash || 0)
+  const invested = rows.reduce((s, r) => s + r.value, 0)
+  const total = invested + Math.max(0, cash || 0)
   const dayChange = rows.reduce((s, r) => s + r.dayChange, 0)
   const cost = rows.reduce((s, r) => s + r.cost, 0)
-  const gain = inVestsed - cost
+  const gain = invested - cost
   rows.forEach(r => { r.weight = total > 0 ? r.value / total : 0 })
   const counts = { COMPLIANT: 0, REVIEW: 0, NON_COMPLIANT: 0 }
   rows.forEach(r => counts[r.screening.status]++)
   return {
-    rows, total, inVestsed, cash: Math.max(0, cash || 0), dayChange,
+    rows, total, invested, cash: Math.max(0, cash || 0), dayChange,
     gain, gainPct: cost > 0 ? (gain / cost) * 100 : 0,
     counts, health: calculatePortfolioShariahHealth(rows),
     sectorBreakdown: sectorBreakdown(rows, total),
@@ -226,9 +226,9 @@ function sectorBreakdown(rows, total) {
 // A transparent, clearly-labeled heuristic — NOT a religious verdict.
 export function calculatePortfolioShariahHealth(rows) {
   if (!rows.length) return { score: 0, label: 'No holdings' }
-  const inVestsed = rows.reduce((s, r) => s + r.value, 0) || 1
+  const invested = rows.reduce((s, r) => s + r.value, 0) || 1
   const weighted = rows.reduce((s, r) => {
-    const w = r.value / inVestsed
+    const w = r.value / invested
     if (r.screening.status === STATUS.COMPLIANT) return s + w * 100
     if (r.screening.status === STATUS.REVIEW) return s + w * 55
     return s + w * 0

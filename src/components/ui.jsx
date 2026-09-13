@@ -96,9 +96,9 @@ export function EmptyState({ icon: Icon, title, body, action }) {
 export function Disclaimer({ className = '' }) {
   return (
     <p className={`rounded-xl bg-slate-100 px-4 py-3 text-xs leading-relaxed text-slate-500 ${className}`}>
-      <strong className="font-semibold text-slate-600">Prototype — not advice.</strong> HalalVestss is a research and
+      <strong className="font-semibold text-slate-600">Prototype — not advice.</strong> Halalvests is a research and
       educational prototype. Shariah classifications are estimates produced by the selected screening methodology and
-      the mock data available to the platform. They are not a fatwa, religious ruling, financial advice, or inVestsment
+      the mock data available to the platform. They are not a fatwa, religious ruling, financial advice, or investment
       recommendation. Prices and financials are mock data, not live market data. Consult qualified Islamic finance
       scholars and licensed financial professionals for individual guidance.
     </p>

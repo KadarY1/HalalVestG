@@ -11,12 +11,12 @@ export default function Dashboard() {
   const pf = portfolios[0]
   const sum = pf ? summarizePortfolio(pf.holdings, pf.cash, getCompany, methodology) : null
   const nisabValue = methodology.nisabGoldGrams * methodology.goldPricePerGram
-  const zakatable = sum ? sum.inVestsed + sum.cash : 0
+  const zakatable = sum ? sum.invested + sum.cash : 0
   const zakat = zakatable >= nisabValue ? zakatable * methodology.zakatRate : 0
   const dividends = sum ? sum.rows.reduce((s, r) => s + r.value * (r.company.dividendYield / 100), 0) : 0
   const purification = sum ? sum.rows.reduce((s, r) => s + r.value * (r.company.dividendYield / 100) * r.company.fin.nonPermIncomePct, 0) : 0
-  const compliantPct = sum && sum.inVestsed > 0
-    ? Math.round(sum.rows.filter(r => r.screening.status === STATUS.COMPLIANT).reduce((s, r) => s + r.value, 0) / sum.inVestsed * 100) : 0
+  const compliantPct = sum && sum.invested > 0
+    ? Math.round(sum.rows.filter(r => r.screening.status === STATUS.COMPLIANT).reduce((s, r) => s + r.value, 0) / sum.invested * 100) : 0
 
   return (
     <div className="space-y-6">
@@ -40,7 +40,7 @@ export default function Dashboard() {
 
       <div className="grid gap-4 lg:grid-cols-2">
         <Card className="p-5">
-          <SectionTitle title="Shariah Compliance" sub="Share of inVestsed value passing the selected screening methodology" />
+          <SectionTitle title="Shariah Compliance" sub="Share of invested value passing the selected screening methodology" />
           <div className="flex items-center gap-5">
             <div className="relative h-28 w-28 shrink-0">
               <AllocationPie data={[{ name: 'Compliant', value: Math.max(compliantPct, 1) }, { name: 'Other', value: Math.max(100 - compliantPct, 0) }]} height={112} />

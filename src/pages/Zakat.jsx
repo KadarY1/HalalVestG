@@ -8,7 +8,7 @@ import { navigate } from '../lib/router.jsx'
 
 const empty = {
   cash: { checking: '', savings: '', physical: '' },
-  inVestsments: { stocks: '', etfs: '', mutualFunds: '', other: '' },
+  investments: { stocks: '', etfs: '', mutualFunds: '', other: '' },
   retirement: { k401: '', ira: '', other: '', accessibility: 'none' },
   metals: { goldGrams: '', silverGrams: '' },
   business: { inventory: '', receivables: '', cash: '' },
@@ -32,7 +32,7 @@ export default function Zakat() {
   const set = (section, key) => (v) => setForm(f => ({ ...f, [section]: { ...f[section], [key]: v } }))
 
   const wealth = useMemo(() => calculateZakatableWealth({
-    cash: numObj(form.cash), inVestsments: numObj(form.inVestsments),
+    cash: numObj(form.cash), investments: numObj(form.investments),
     retirement: { ...form.retirement, ...numObj({ k401: form.retirement.k401, ira: form.retirement.ira, other: form.retirement.other }) },
     metals: numObj(form.metals), business: numObj(form.business),
     liabilities: Number(form.liabilities) || 0,
@@ -63,12 +63,12 @@ export default function Zakat() {
             </div>
           </Card>
 
-          <Card className="p-5"><SectionTitle title="InVestsments" sub="Current market value" />
+          <Card className="p-5"><SectionTitle title="investments" sub="Current market value" />
             <div className="grid gap-3 sm:grid-cols-2">
-              <Field label="Stocks"><Num value={form.inVestsments.stocks} onChange={set('inVestsments', 'stocks')} aria-label="Stocks" /></Field>
-              <Field label="ETFs"><Num value={form.inVestsments.etfs} onChange={set('inVestsments', 'etfs')} aria-label="ETFs" /></Field>
-              <Field label="Mutual funds"><Num value={form.inVestsments.mutualFunds} onChange={set('inVestsments', 'mutualFunds')} aria-label="Mutual funds" /></Field>
-              <Field label="Other inVestsments"><Num value={form.inVestsments.other} onChange={set('inVestsments', 'other')} aria-label="Other inVestsments" /></Field>
+              <Field label="Stocks"><Num value={form.investments.stocks} onChange={set('investments', 'stocks')} aria-label="Stocks" /></Field>
+              <Field label="ETFs"><Num value={form.investments.etfs} onChange={set('investments', 'etfs')} aria-label="ETFs" /></Field>
+              <Field label="Mutual funds"><Num value={form.investments.mutualFunds} onChange={set('investments', 'mutualFunds')} aria-label="Mutual funds" /></Field>
+              <Field label="Other investments"><Num value={form.investments.other} onChange={set('investments', 'other')} aria-label="Other investments" /></Field>
             </div>
           </Card>
 

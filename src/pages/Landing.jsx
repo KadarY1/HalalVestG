@@ -3,9 +3,9 @@ import { Link } from '../lib/router.jsx'
 import { Disclaimer } from '../components/ui.jsx'
 
 const FEATURES = [
-  { icon: Search, title: 'Research', body: 'Understand individual inVestsments through financial metrics and transparent Shariah screening breakdowns.' },
+  { icon: Search, title: 'Research', body: 'Understand individual investments through financial metrics and transparent Shariah screening breakdowns.' },
   { icon: ShieldCheck, title: 'Shariah Screening', body: 'See how securities perform under a selected methodology — with every threshold and number visible.' },
-  { icon: Calculator, title: 'Zakat', body: 'Estimate your annual Zakat obligation across cash, inVestsments, metals, and business assets.' },
+  { icon: Calculator, title: 'Zakat', body: 'Estimate your annual Zakat obligation across cash, investments, metals, and business assets.' },
   { icon: Eye, title: 'Transparency', body: 'Every result shows its methodology, timestamp, and assumptions. Research output — never a fatwa.' },
 ]
 
@@ -22,13 +22,13 @@ export default function Landing() {
 
       <section className="mx-auto max-w-4xl px-6 pb-16 pt-16 text-center sm:pt-24">
         <p className="mb-4 inline-block rounded-full bg-brand-50 px-4 py-1 text-xs font-bold uppercase tracking-widest text-brand-700 ring-1 ring-inset ring-brand-200">
-          Prototype — InVests With Clarity. InVests With Purpose.
+          Prototype — invest With Clarity. invest With Purpose.
         </p>
         <h1 className="text-4xl font-extrabold tracking-tight text-slate-900 sm:text-6xl">
-          Understand your inVestsments<br className="hidden sm:block" /> through a Shariah-conscious lens.
+          Understand your investments<br className="hidden sm:block" /> through a Shariah-conscious lens.
         </h1>
         <p className="mx-auto mt-6 max-w-2xl text-lg text-slate-600">
-          Research inVestsments, understand Shariah screening, and estimate your Zakat — all in one place.
+          Research investments, understand Shariah screening, and estimate your Zakat — all in one place.
         </p>
         <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
           <Link to="/screener" className="inline-flex items-center gap-2 rounded-xl bg-brand-700 px-6 py-3 text-sm font-bold text-white shadow-sm hover:bg-brand-800">
@@ -55,7 +55,7 @@ export default function Landing() {
 
       <footer className="mx-auto max-w-4xl px-6 py-12">
         <Disclaimer />
-        <p className="mt-4 text-center text-xs text-slate-400">HalalVestss prototype · mock data · not a brokerage, adviser, or religious authority</p>
+        <p className="mt-4 text-center text-xs text-slate-400">Halalvests prototype · mock data · not a brokerage, adviser, or religious authority</p>
       </footer>
     </div>
   )

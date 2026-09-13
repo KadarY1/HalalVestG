@@ -9,7 +9,7 @@ export default function ZakatResults() {
 
   const download = () => {
     const lines = [
-      'HalalVestss — Zakat Calculation (Prototype, educational estimate)', '',
+      'Halalvests — Zakat Calculation (Prototype, educational estimate)', '',
       `Methodology: ${r.methodology} · Rate: ${(r.rate * 100).toFixed(1)}%`, '',
       'Breakdown:', ...r.wealth.lines.map(l => `  ${l.label}: ${fmtMoney(l.amount)}`),
       `  Subtotal: ${fmtMoney(r.wealth.subtotal)}`,
@@ -21,7 +21,7 @@ export default function ZakatResults() {
       'Not a religious ruling. Consult qualified scholars.',
     ].join('\n')
     const url = URL.createObjectURL(new Blob([lines], { type: 'text/plain' }))
-    const a = Object.assign(document.createElement('a'), { href: url, download: 'HalalVestss-zakat.txt' })
+    const a = Object.assign(document.createElement('a'), { href: url, download: 'Halalvests-zakat.txt' })
     a.click(); URL.revokeObjectURL(url)
   }
 
@@ -58,7 +58,7 @@ export default function ZakatResults() {
 
       <Disclaimer />
       <p className="text-xs text-slate-500">
-        <strong>Important:</strong> Zakat calculations depend on asset type, ownership, liabilities, inVestsment
+        <strong>Important:</strong> Zakat calculations depend on asset type, ownership, liabilities, investment
         structure, and scholarly methodology. This is an educational estimate, not a religious ruling.
       </p>
       <div className="flex gap-3">

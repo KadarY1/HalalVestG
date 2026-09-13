@@ -12,14 +12,14 @@ export default function Methodology() {
     <div className="space-y-6">
       <div>
         <h1 className="text-2xl font-extrabold text-slate-900">Methodology</h1>
-        <p className="text-sm text-slate-500">How HalalVestss arrives at its screening results — fully transparent and configurable.</p>
+        <p className="text-sm text-slate-500">How Halalvests arrives at its screening results — fully transparent and configurable.</p>
       </div>
 
       <Card className="flex gap-3 border-amber-200 bg-amber-50 p-4">
         <ShieldAlert className="h-5 w-5 shrink-0 text-amber-600" />
         <p className="text-sm leading-relaxed text-amber-800">
           <strong>Different scholars, institutions, and Shariah standards may reach different conclusions regarding
-          individual securities.</strong> HalalVestss's prototype classifications should be treated as research outputs
+          individual securities.</strong> Halalvests's prototype classifications should be treated as research outputs
           rather than religious rulings.
         </p>
       </Card>
@@ -27,7 +27,7 @@ export default function Methodology() {
       <Card className="p-6">
         <SectionTitle title="What is Shariah screening?" />
         <p className="leading-relaxed text-slate-700">
-          Islamic inVestsing generally restricts certain business activities (what a company sells) and certain financial
+          Islamic investing generally restricts certain business activities (what a company sells) and certain financial
           structures (how a company is financed). Screening applies two layers of checks: a business-activity screen and
           a financial-ratio screen. Securities that pass may still carry a small non-permissible income share — handled
           through purification — and wealth held above nisab may be subject to Zakat.
@@ -92,7 +92,7 @@ export default function Methodology() {
       <Card className="p-6">
         <SectionTitle title="Shariah Governance" />
         <p className="text-sm leading-relaxed text-slate-600">
-          Future versions of HalalVestss could incorporate review from qualified Islamic finance scholars and a formal
+          Future versions of Halalvests could incorporate review from qualified Islamic finance scholars and a formal
           Shariah advisory board. <strong>No such board currently exists</strong> for this prototype, and no result
           displayed here should be treated as a religious determination.
         </p>
